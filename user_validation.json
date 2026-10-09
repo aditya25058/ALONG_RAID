@@ -1,0 +1,28 @@
+{
+  "commuters": [
+    {
+      "id": 1,
+      "waited_minutes_for_savings": 0,
+      "cares_about_transparency": false,
+      "feedback": "",
+      "notes": ""
+    }
+  ],
+  "drivers": [
+    {
+      "id": 1,
+      "values_transparency": false,
+      "accepts_sharing_detours": false,
+      "feedback": "",
+      "notes": ""
+    }
+  ],
+  "summary": {
+    "total_commuters": 15,
+    "total_drivers": 5,
+    "hypotheses_validated": {
+      "fairness_transparency": null,
+      "savings_for_time": null
+    }
+  }
+}

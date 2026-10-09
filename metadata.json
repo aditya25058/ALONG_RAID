@@ -1,0 +1,5 @@
+
+{
+  "name": "ALONG Ride-Hailing Simulator",
+  "description": "A React web application simulating the ALONG ride-hailing backend algorithm for dynamic mid-ride pooling, featuring Pareto-Optimal Pricing and real-time constraints."
+}

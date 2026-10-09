@@ -1,0 +1,25 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 1. Anti-Stall: Velocity-to-Traffic baseline check
+    match /driver_locations/{driverId} {
+      allow write: if request.auth != null && request.auth.uid == driverId 
+        && ( (request.resource.data.pos.distanceTo(resource.data.pos) / 
+              (request.time - resource.data.lastUpdate).seconds()) > 2.0 ); 
+    }
+
+    // 2. Institutional Sybil Block
+    match /ride_requests/{requestId} {
+      allow create: if request.auth != null 
+        && request.time > get(/databases/$(database)/documents/users/$(request.auth.uid)).data.last_req + duration.value(30, 's')
+        && get(/databases/$(database)/documents/global_state/integrity).data.sis > 20;
+    }
+    
+    // 3. App Check Enforcement
+    match /{document=**} {
+      allow read, write: if request.auth != null && request.appCheck != null;
+    }
+  }
+}

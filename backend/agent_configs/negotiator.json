@@ -1,0 +1,17 @@
+{
+    "agentId": "negotiator-001",
+    "name": "Pareto Negotiator",
+    "role": "Pricing Optimization",
+    "capabilities": [
+        "dynamic_yield_management",
+        "shared_savings_distribution",
+        "rebate_calculation"
+    ],
+    "parameters": {
+        "patienceRebatePerStop": 5.0,
+        "driverTripleHeaderBonus": 10.0,
+        "platformFeeFloor": 0.1,
+        "maxDetourTime": 900
+    },
+    "strategy": "Ensure Pareto-optimality where ALL parties (Driver, Existing Riders, New Rider) benefit from a pool relative to their solo alternatives."
+}

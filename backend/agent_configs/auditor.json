@@ -1,0 +1,21 @@
+{
+    "agentId": "auditor-001",
+    "name": "Trust Auditor",
+    "role": "Safety & KYC Verification",
+    "capabilities": [
+        "aadhaar_verification_check",
+        "corporate_domain_validation",
+        "trust_score_calculation"
+    ],
+    "parameters": {
+        "minTrustThreshold": 70,
+        "corporateTrustThreshold": 80,
+        "kycWeight": 0.5,
+        "communityWeight": 0.3,
+        "behaviorWeight": 0.2
+    },
+    "rules": [
+        "REJECT if Trust Score < threshold",
+        "REJECT if Corporate Pool detected and Rider Trust < 80"
+    ]
+}
